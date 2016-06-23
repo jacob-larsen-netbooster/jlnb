@@ -107,13 +107,15 @@ add_action( 'widgets_init', 'jlnb_widgets_init' );
 
 
 // Enqueues scripts and styles.
-// function jlnb_scripts() {
+if ( ! function_exists( 'jlnb_scripts' ) ) {
+  function jlnb_scripts() {
+    // load js script // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer);
+    wp_enqueue_script( 'jlnb-script', get_template_directory_uri() . '/theme.js', array ( 'jquery' ), 3.0, true);
+    wp_enqueue_script( 'jlnb-script');
 
-  // load js script // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer);
-  wp_enqueue_script( 'script', get_template_directory_uri() . '/theme.js', array ( 'jquery' ), 3.0, true);
+    wp_register_style( 'jlnb-style', get_template_directory_uri().'/style.css', '20160623' );
+    wp_enqueue_style( 'jlnb-style' );
 
-  // Load the Internet Explorer specific stylesheet.
-  wp_enqueue_style( 'jlnb-style', get_template_directory_uri() . '/style.css', '20160623' );
-
-// }
-// add_action( 'wp_enqueue_scripts', 'jlnb_scripts' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'jlnb_scripts' );
