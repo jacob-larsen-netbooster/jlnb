@@ -4,6 +4,13 @@ var gulp = require( 'gulp' ),
 		babelify = require( 'babelify' ),
 		source = require( 'vinyl-source-stream' );
 
+var sass = require('gulp-sass'),
+		sourcemaps = require('gulp-sourcemaps'),
+		rename = require('gulp-rename'),
+		autoprefixer = require('gulp-autoprefixer');
+
+
+
 
 gulp.task( 'react', function() {
 	return gulp.src( 'components/Index.jsx' )
@@ -11,8 +18,6 @@ gulp.task( 'react', function() {
 		.pipe( react() )
 		.pipe( gulp.dest( 'js' ) );
 });
-
-
 
 var bundler = browserify( './components/Index.jsx' );
  bundler.transform( reactify )
@@ -37,8 +42,37 @@ function ErrorHandler (error) {
   this.emit('end')
 }
 
+
+
+
+
+
+
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+};
+
+var autoprefixerOptions = {
+  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
+};
+
+gulp.task('sass', function () {
+  return gulp
+    .src('./sass/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass(sassOptions).on('ErrorHandler', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(rename( 'style.css' ) )
+    .pipe(gulp.dest('./'));
+});
+
+
+
+
 // Watcher
 gulp.task( 'watch', function() {
-	//gulp.watch('components/**/*.scss', ['styles']);
+	gulp.watch('sass/**/*.scss', ['sass']);
 	gulp.watch('components/**/*.jsx', ['js']);
 });
