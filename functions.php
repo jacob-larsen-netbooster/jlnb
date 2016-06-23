@@ -105,5 +105,15 @@ add_action( 'widgets_init', 'jlnb_widgets_init' );
 
 
 
-// load js script // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer);
-wp_enqueue_script( 'script', get_template_directory_uri() . '/theme.js', array ( 'jquery' ), 3.0, true);
+
+// Enqueues scripts and styles.
+// function jlnb_scripts() {
+
+  // load js script // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer);
+  wp_enqueue_script( 'script', get_template_directory_uri() . '/theme.js', array ( 'jquery' ), 3.0, true);
+
+  // Load the Internet Explorer specific stylesheet.
+  wp_enqueue_style( 'jlnb-style', get_template_directory_uri() . '/style.css', '20160623' );
+
+// }
+// add_action( 'wp_enqueue_scripts', 'jlnb_scripts' );
