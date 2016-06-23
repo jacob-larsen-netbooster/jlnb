@@ -1,0 +1,38 @@
+{
+  "name": "jlnb-wp-theme",
+  "version": "0.0.2",
+  "description": "Wordpress theme build by JL @ NB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacob-larsen-netbooster/jlnb.git"
+  },
+  "keywords": [
+    "wp",
+    "react",
+    "theme"
+  ],
+  "author": "Jacob Larsen @ Netbooster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacob-larsen-netbooster/jlnb/issues"
+  },
+  "homepage": "https://github.com/jacob-larsen-netbooster/jlnb#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
+    "page": "^1.7.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "reactify": "^1.1.1",
+    "source": "0.0.3",
+    "superagent": "^2.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
