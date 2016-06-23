@@ -1,5 +1,4 @@
-# simple-react-wp-theme
-Name says it all
+# Wordpress theme build by JL @ NB
 
 
 
