@@ -4,9 +4,7 @@
   Author: Jacob Larsen @ Netbooser
 */
 
-img{
-  max-width: 100%;
-}
+
 
 
 body{
@@ -17,4 +15,17 @@ body{
 
 body.customize-support{
   margin-top: 50px;
+}
+
+
+.content{
+	img{
+	  max-width: 100%;
+	}
+
+	div {
+		border: 1px solid #000;
+		margin: 10px;
+	}
+
 }
