@@ -1,25 +1,41 @@
-<?php get_header() ?>
-
-<?php 
-if ( ! is_active_sidebar( 'widget-1' ) ) {
-  return;
+<?php
+if ( 'page' == get_option('show_on_front') ) {
+  echo $page_id = get_option('page_on_front');
 }
 ?>
 
-<?php if ( is_active_sidebar( 'widget-1' ) ) : ?>
-  <div class="widget-area">
-    <?php dynamic_sidebar( 'widget-1' ); ?>
-  </div><!-- .widget-area -->
-<?php endif; ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?> class="no-js">
+<head>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <?php endif; ?>
+  <?php wp_head(); ?>
+</head>
+
+<body>
+
+  <header class="jlnb">
+    <h2>Header</h2>
+    
+    <div id="jlnb-logo"></div>
+    <div id="jlnb-topMenu"></div>
+    <div id="jlnb-burgerMenu"></div>
+
+  </header>
+
+<div class="jlnb-content">
+  <div id="jlnb-mainPage"></div>
+</div> <!-- content -->
+
+<footer class="jlnb">footer</footer>
 
 
-<div id="js-rendere"></div>
 
 
-
-
-
-
-
-
-<?php get_footer() ?>
+<?php wp_footer(); ?>
+</body>
+</html>
