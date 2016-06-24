@@ -45,11 +45,7 @@ function ErrorHandler (error) {
 
 
 
-
-
-
 var sassOptions = {
-  errLogToConsole: true,
   outputStyle: 'expanded'
 };
 
@@ -61,7 +57,7 @@ gulp.task('sass', function () {
   return gulp
     .src('./sass/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass(sassOptions).on('ErrorHandler', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(rename( 'style.css' ) )
@@ -75,4 +71,9 @@ gulp.task('sass', function () {
 gulp.task( 'watch', function() {
 	gulp.watch('sass/**/*.scss', ['sass']);
 	gulp.watch('components/**/*.jsx', ['js']);
+});
+
+
+// default gulp task
+gulp.task('default', ['sass', 'js'], function() {
 });
