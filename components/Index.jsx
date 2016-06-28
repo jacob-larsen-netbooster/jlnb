@@ -5,10 +5,20 @@ var Router = require( './Router.jsx' );
 var Menu = require( './Menu.jsx' );
 var StandardComponent = require( './Boiler.jsx' ); // <StandardComponent />
 
+
+/*
+ WP Settings
+*/
+var frontpageid = document.body.getAttribute('data-frontpageid');
+
+
+  
+
+
 var PageWrapper = React.createClass({
   render() {
     return (
-        <Router />
+        <Router frontpageid={frontpageid} />
     );
   }
 });

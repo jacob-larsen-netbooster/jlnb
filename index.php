@@ -1,6 +1,6 @@
 <?php
 if ( 'page' == get_option('show_on_front') ) {
-  echo $page_id = get_option('page_on_front');
+  $page_id = get_option('page_on_front');
 }
 ?>
 
@@ -16,7 +16,9 @@ if ( 'page' == get_option('show_on_front') ) {
   <?php wp_head(); ?>
 </head>
 
-<body>
+<body 
+  data-frontpageid="<?php echo $page_id; ?>"
+>
 
   <header class="jlnb">
     <h2>Header</h2>

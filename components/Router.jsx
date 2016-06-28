@@ -6,12 +6,18 @@ var Content = require( './content/content.jsx' );
 
 var Router = React.createClass({
 	componentDidMount: function() {
-		var self = this;
+		var self = this,
+				frontpageid = self.props.frontpageid;
 
 		// If Index
 		page( '/', function ( ctx ) {
-			var data,
+			var data, url;
+
+				if(frontpageid > 0){
+					url = "/wp-json/wp/v2/pages/?filter[id]="+frontpageid;
+				}else{
 					url = "/wp-json/wp/v2/posts";
+				}		
 
 			request
 				.get( url )
