@@ -11,10 +11,6 @@ var StandardComponent = require( './Boiler.jsx' ); // <StandardComponent />
 */
 var frontpageid = document.body.getAttribute('data-frontpageid');
 
-
-  
-
-
 var PageWrapper = React.createClass({
   render() {
     return (

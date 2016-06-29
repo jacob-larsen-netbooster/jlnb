@@ -13,12 +13,11 @@ var Router = React.createClass({
 		page( '/', function ( ctx ) {
 			var data, url;
 
-				if(frontpageid > 0){
-					url = "/wp-json/wp/v2/pages/?filter[id]="+frontpageid;
-				}else{
-					url = "/wp-json/wp/v2/posts";
-				}		
-
+			if(frontpageid > 0){
+				url = "/wp-json/wp/v2/pages/?filter[page_id]="+frontpageid;
+			}else{
+				url = "/wp-json/wp/v2/posts";
+			}		
 			request
 				.get( url )
 				.end( function( err, res ) {
