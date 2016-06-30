@@ -1,4 +1,8 @@
 <?php
+
+echo 'GIT CHECK';
+
+
 if ( 'page' == get_option('show_on_front') ) {
   $page_id = get_option('page_on_front');
 }
